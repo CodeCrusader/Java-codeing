@@ -4,15 +4,25 @@ public static void main(String[] args){
 	Random Number = new Random();
 	int answer;
 		answer = 1+Number.nextInt(10);
+		int remain = 0;
+		int deathcont = 0;
 	
 
 	System.out.println("This is a guessing game where you have to guess a number between 1-10 you have 6 attempts before you fail, let the games begin!");
-	System.out.println("A number has been picked" + answer);
+	System.out.println("A number has been picked");
 	Scanner number = new Scanner(System.in);
-	System.out.println("Enter your guess 1-10[Type 2003 to cheat: ");
+	while(remain < 6){
+	System.out.println("Enter your guess 1-10 : " + answer);
 	int dimmer = number.nextInt();
 	if(dimmer == 2003)System.out.println("FUCK YOU THERE IS NO CHEATING IN THIS FUCKING GAME!");
-	if(dimmer == answer)System.out.println("You win!"); else System.out.println("You have failed");
+	if(dimmer == answer) remain = 6;
+	System.out.println("Guess again");
+	}
+	if(deathcont==6)System.out.println("You have failed the game"); else{
+	System.out.println("YOUR WON! THE ANSWER WAS " + answer);
+	remain++;
+	deathcont++;
+	}
 }	
 }
 
